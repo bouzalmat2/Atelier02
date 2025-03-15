@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 10px;
+            text-align: center;
+        }
+        th {
+            background-color: lightgray;
+        }
+    </style>
+</head>
+<body>
+
+
+
+    <div id="multiplication"></div>
+    <script>
+         function TableMultiplication(nbr){
+            let container=document.querySelector("#multiplication");
+            let table= document.createElement("table");
+            table.border=1;
+            let tr=document.createElement("tr");
+            let th1=document.createElement("th");
+            th1.textContent='multiplication de '+nbr;
+            let th2=document.createElement("th");
+            th2.textContent='resultat';
+            tr.append(th1,th2);
+            table.appendChild(tr);
+            for(let i=1;i<=10;i++){
+                let row=document.createElement("tr");
+                let td1=document.createElement("td");
+                let td2=document.createElement("td");
+                td1.textContent=nbr+'*'+i;
+                td2.textContent=nbr*i;
+                row.append(td1,td2);
+                table.appendChild(row);
+            }
+            
+            container.appendChild(table);
+            
+         }
+
+
+
+       let val=prompt("Entre un un nombre :");
+       val=parseInt(val);
+       if(!isNaN(val)){
+            TableMultiplication(val);
+       }else{
+              alert("entre un nobre valide!!!!!");
+       }
+         
+       
+
+
+     
+       
+
+    </script>
+</body>
+</html>
