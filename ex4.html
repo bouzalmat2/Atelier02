@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> opérations sur les matrices</title>
+</head>
+<body>
+    <script>
+
+
+
+//------------------------- addition de deux matrices---------------------
+        function addMtrice(A,B){
+            const n=A.length;
+            let C =[];
+            for(let i=0;i<n;i++){
+                C[i]=[];
+                for(let j=0;j<n;j++){
+                    C[i][j]=A[i][j] +B[i][j];
+
+                }
+            }
+            return C;
+        }
+
+
+
+// -------------------------soustraction de deux matrices -----------------------
+        function soustractionMatrice(A, B) {
+     const n = A.length;
+     let C = [];
+
+     for (let i = 0; i < n; i++) {
+        C[i] = [];
+        for (let j = 0; j < n; j++) {
+            C[i][j] = A[i][j] - B[i][j];
+        }
+       }
+    return C;
+}
+// -------------------------multiplication de deux matrices -----------------------
+
+function multiplicationMatrice(A, B) {
+    const n = A.length;
+    let C = [];
+
+    for (let i = 0; i < n; i++) {
+        C[i] = [];
+        for (let j = 0; j < n; j++) {
+            C[i][j] = 0; 
+            for (let k = 0; k < n; k++) {
+                C[i][j] += A[i][k] * B[k][j];
+            }
+        }
+    }
+
+    return C;
+}
+// -------------------------transposition d'une matrice-----------------------------------------
+
+function transposeMatrice(A) {
+    const n = A.length;
+    let C = [];
+
+    for (let i = 0; i < n; i++) {
+        C[i] = [];
+        for (let j = 0; j < n; j++) {
+            C[i][j] = A[j][i];
+        }
+    }
+    return C;
+}
+
+
+        
+let A = [
+    [1, 2],
+    [3, 4]
+];
+
+let B = [
+    [5, 6],
+    [7, 8]
+];
+console.log(addMtrice(A,B));
+console.log(soustractionMatrice(A,B));
+console.log(multiplicationMatrice(A,B));
+console.log(transposeMatrice(A));
+
+    </script>
+    
+</body>
+</html>
