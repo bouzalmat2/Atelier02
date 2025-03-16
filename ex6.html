@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculatrice Simple</title>
+    <style>
+        
+        .container { 
+            margin: 20px auto; 
+            width: 300px; padding: 20px;
+             border: 1px solid #ccc;
+              border-radius: 10px;
+              text-align: center;  
+            }
+        #result { margin-top: 10px; font-size: 20px; font-weight: bold; color: green; }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>Calculatrice</h2>
+
+        <input type="text" id="num1" placeholder="Entrez un nombre"><br><br>
+        <input type="text" id="num2" placeholder="Entrez un nombre"><br><br>
+
+        <input type="radio" name="operation" value="+" checked>  +<br>
+        <input type="radio" name="operation" value="-"> - <br>
+        <input type="radio" name="operation" value="*">  * <br>
+        <input type="radio" name="operation" value="/">  /
+        <br><br>
+
+        <button onclick="calculer()"  style="background-color:  rgb(59, 59, 253);">Calculer</button>
+
+        <div  id="res"></div>
+    </div>
+
+    <script>
+        function calculer() {
+            let num1 = parseFloat(document.getElementById("num1").value);
+            let num2 = parseFloat(document.getElementById("num2").value);
+            let operation = document.querySelector('input[name="operation"]:checked').value;
+            let resDiv = document.getElementById("res");
+
+            if (isNaN(num1) || isNaN(num2)) {
+                restDiv.textContent = " entrer  nombres valides.";
+                resDiv.style.color = "red";
+                return;
+            }
+
+            let res=0;
+            switch (operation) {
+                case "+": res = num1 + num2; break;
+                case "-": res = num1 - num2; break;
+                case "*": res = num1 * num2; break;
+                case "/": 
+                    if (num2 === 0) {
+                        resDiv.textContent = " impossible la division par zero.";
+                        resDiv.style.color = "red";
+                        return;
+                    }
+                    res = num1 / num2; 
+                    break;
+                default: res = "Erreur !!!";
+            }
+
+            resDiv.textContent = "Resultat : " + res;
+            resDiv.style.color = "green";
+        }
+    </script>
+
+</body>
+</html>
