@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>somme des chiffres</title>
+</head>
+<body>
+    <script>
+     function sommeChiffres(nbr){
+        return nbr.toString().split('').reduce((somme,chiffre)=>somme+parseInt(chiffre),0);
+     }
+     console.log(sommeChiffres(12345));
+
+
+    </script>
+    
+</body>
+</html>
